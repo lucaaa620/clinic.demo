@@ -8,54 +8,91 @@
 <style>
 
 body{
-font-family: Arial;
+font-family:Arial;
 margin:0;
-background:#f5f5f5;
+background:#f2f6fc;
 }
 
 header{
-background:#2c7be5;
+background:#1e88e5;
 color:white;
-padding:30px;
 text-align:center;
+padding:50px 20px;
 }
 
-section{
-padding:40px;
-max-width:900px;
-margin:auto;
-background:white;
+header h1{
+margin:0;
+font-size:36px;
+}
+
+.hero-btn{
 margin-top:20px;
-border-radius:10px;
-}
-
-h2{
-color:#2c7be5;
 }
 
 button{
-background:#2c7be5;
-color:white;
+background:white;
+color:#1e88e5;
 border:none;
 padding:12px 20px;
 border-radius:6px;
 cursor:pointer;
+font-weight:bold;
+margin:5px;
 }
 
-input,textarea{
+section{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+}
+
+h2{
+color:#1e88e5;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
+}
+
+.gallery img{
+width:100%;
+border-radius:8px;
+}
+
+form input,form textarea{
 width:100%;
 padding:10px;
 margin:10px 0;
 border:1px solid #ccc;
-border-radius:5px;
+border-radius:6px;
+}
+
+form button{
+background:#1e88e5;
+color:white;
 }
 
 footer{
-text-align:center;
-padding:20px;
-margin-top:20px;
 background:#222;
 color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 
 </style>
@@ -64,36 +101,90 @@ color:white;
 <body>
 
 <header>
+
 <h1>Dr Bisoi's Vitality Care Clinic</h1>
-<p>General Medicine | Diabetes | Thyroid Treatment</p>
-<button onclick="alert('Demo Appointment Feature')">Book Appointment</button>
+<p>Specialist in Diabetes, Thyroid & General Medicine</p>
+<p>⭐ 4.9 Rating from 48 Patients</p>
+
+<div class="hero-btn">
+<button>Book Appointment</button>
+<button onclick="window.location.href='tel:08457981333'">Call Now</button>
+</div>
+
 </header>
 
 <section>
-<h2>About Doctor</h2>
+
+<h2>About Clinic</h2>
 
 <p>
-Dr K. S. Bisoi runs Vitality Care Clinic in Angul, Odisha.
-The clinic specializes in treating metabolic and general
-health conditions including diabetes, thyroid disorders,
-obesity and other medical issues.
+Dr Bisoi's Vitality Care Clinic in Angul specializes in treating
+diabetes, thyroid disorders, obesity and general medicine cases.
+Adult vaccination services are also available.
 </p>
-
-<p><b>Rating:</b> 4.9 ⭐ (48 Reviews)</p>
 
 </section>
 
 <section>
 
-<h2>Services</h2>
+<h2>Our Services</h2>
 
-<ul>
-<li>Diabetes Treatment</li>
-<li>Thyroid Disorders</li>
-<li>Obesity Treatment</li>
-<li>General Medicine</li>
-<li>Adult Vaccination</li>
-</ul>
+<div class="services">
+
+<div class="card">
+<h3>Diabetes Treatment</h3>
+<p>Advanced care for managing blood sugar levels.</p>
+</div>
+
+<div class="card">
+<h3>Thyroid Disorders</h3>
+<p>Diagnosis and treatment for thyroid problems.</p>
+</div>
+
+<div class="card">
+<h3>Obesity Treatment</h3>
+<p>Weight management and metabolic care.</p>
+</div>
+
+<div class="card">
+<h3>Adult Vaccination</h3>
+<p>Vaccination services for adults.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Clinic Photos</h2>
+
+<div class="gallery">
+
+<img src="clinic1.jpg">
+<img src="clinic2.jpg">
+<img src="clinic3.jpg">
+<img src="clinic4.jpg">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Patient Reviews</h2>
+
+<div class="card">
+⭐ "Excellent Doctor to consult." – Sunand Kunar
+</div>
+
+<div class="card">
+⭐ "Clinic service is good." – Suraj Patra
+</div>
+
+<div class="card">
+⭐ "Very good diagnosis and treatment." – Tuna Behera
+</div>
 
 </section>
 
@@ -103,15 +194,15 @@ obesity and other medical issues.
 
 <form>
 
-<input type="text" placeholder="Your Name" required>
+<input type="text" placeholder="Your Name">
 
-<input type="tel" placeholder="Phone Number" required>
+<input type="tel" placeholder="Phone Number">
 
-<input type="date" required>
+<input type="date">
 
 <textarea placeholder="Message"></textarea>
 
-<button type="submit">Submit Appointment</button>
+<button type="submit">Submit</button>
 
 </form>
 
@@ -119,27 +210,24 @@ obesity and other medical issues.
 
 <section>
 
-<h2>Clinic Information</h2>
+<h2>Clinic Location</h2>
 
-<p><b>Address:</b><br>
-Dr. K. S. Bisoi  
-C/o Tulasi Medicine Store  
-Kalia Sahu Market Complex  
+<p>
+Bus Stand, Kalia Sahu Market Complex  
 Near Shanti Hotel  
-Bus Stand Road, Angul, Odisha 759122
+Angul, Odisha 759122
 </p>
 
-<p><b>Phone:</b> 084579 81333</p>
-
-<p><b>Hours:</b> Open 24 Hours</p>
+<a href="https://maps.app.goo.gl/m7367DoJ6bpUsH5i8" target="_blank">
+Open in Google Maps
+</a>
 
 </section>
 
 <footer>
 
 <p>Demo Clinic Website</p>
-
-<p>This is a sample website created for demonstration purposes.</p>
+<p>This website is created for demonstration purposes.</p>
 
 </footer>
 
