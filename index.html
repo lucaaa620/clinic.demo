@@ -1,779 +1,503 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Bisoi's Vitality Care Clinic | Best General Physician in Angul</title>
-    <meta name="description" content="Dr. K.S. Bisoi's Vitality Care Clinic - 24/7 General Medicine, Diabetes, Thyroid & Metabolic Disorders Treatment in Angul, Odisha. Call 084579 81333">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #0d9488;
-            --primary-dark: #0f766e;
-            --secondary: #f59e0b;
-            --accent: #ef4444;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gradient: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(13, 148, 136, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(13, 148, 136, 0.6); }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Emergency Banner */
-        .emergency-banner {
-            background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
-            color: white;
-            text-align: center;
-            padding: 12px;
-            font-weight: 600;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1001;
-            animation: slideDown 0.5s ease-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
-        .emergency-banner i {
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 40px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            top: 0;
-            background: rgba(255, 255, 255, 0.98);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            animation: pulse-glow 3s infinite;
-        }
-
-        .logo-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-            line-height: 1.2;
-        }
-
-        .logo-text span {
-            font-size: 0.85rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 110px;
-            min-height: 90vh;
-            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #f0fdfa 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-bg-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: radial-gradient(var(--primary) 2px, transparent 2px);
-            background-size: 30px 30px;
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(13, 148, 136, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; top: 20%; animation-delay: 0s; }
-        .shape:nth-child(2) { width: 120px; height: 120px; right: 10%; top: 60%; animation-delay: 2s; }
-        .shape:nth-child(3) { width: 60px; height: 60px; left: 70%; top: 30%; animation-delay: 4s; }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-content h2 span {
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-content h2 span::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: rgba(13, 148, 136, 0.2);
-            z-index: -1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #64748b;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            animation: slideInUp 0.8s ease-out;
-        }
-
-        .stars {
-            color: #fbbf24;
-        }
-
-        .rating-text {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.5);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .experience-badge {
-            position: absolute;
-            bottom: 30px;
-            left: -30px;
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            animation: slideInUp 1s ease-out 0.5s both;
-        }
-
-        .experience-badge .number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .experience-badge .text {
-            font-size: 0.9rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            color: #64748b;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: var(--primary);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(13, 148, 136, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 32px;
-            color: var(--primary);
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover .feature-icon {
-            background: var(--primary);
-            color: white;
-            transform: rotateY(360deg);
-        }
-
-        .feature-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .feature-card p {
-            color: #64748b;
-            font-size: 0.95rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 20px;
-            background: linear-gradient(to right, #f8fafc 0%, #ffffff 100%);
-            position: relative;
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .about-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .about-content .highlight {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .about-content p {
-            color: #64748b;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 20px;
-            background: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-header {
-            background: var(--gradient);
-            padding: 30px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-header::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255,255,255,0.1);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-        }
-
-        .service-card:hover .service-header::after {
-            transform: rotate(45deg) translate(50%, 50%);
-        }
-
-        .service-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .service-header h4 {
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-
-        .service-body {
-            padding: 30px;
-        }
-
-        .service-list {
-            list-style: none;
-        }
-
-        .service-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #64748b;
-        }
-
-        .service-list li:last-child {
-            border-bottom: none;
-        }
-
-        .service-list i {
-            color: var(--primary);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials::before {
-            content: '"';
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            font-size: 200px;
-            color: rgba(13, 148, 136, 0.1);
-            font-family: 'Playfair Display', serif;
-            line-height: 1;
-        }
-
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-
-        .testimonial-card.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .testimonial-text {
-            font-size: 1.2rem;
-            color: var(--dark);
-            font-style: italic;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .testimonial-rating {
-            color: #fbbf24;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .slider-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            background: white;
-            color: var(--primary);
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .slider-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .slider-dots {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #cbd5e1;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: var(--primary);
-            width: 30px;
-            border-radius: 6px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. K.S. Bisoi – Vitality Care Clinic, Angul</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0a7c6e;
+    --teal-light: #12a08f;
+    --teal-pale: #e6f5f3;
+    --gold: #c9a84c;
+    --dark: #0d1f1e;
+    --text: #2c3e38;
+    --muted: #6b7c78;
+    --white: #fafcfc;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(250,252,252,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(10,124,110,0.12);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 6vw; height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: var(--teal);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text);
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--teal); color: white !important;
+    padding: 0.45rem 1.2rem; border-radius: 50px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-light) !important; color: white !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--dark) 0%, #0f2e2b 55%, #0a3d35 100%);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 100px 6vw 60px; gap: 4rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,124,110,0.25) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 10%;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold); padding: 0.4rem 1rem; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.8rem; animation: fadeUp 0.7s ease both;
+  }
+  .hero-badge::before { content: '★'; font-size: 0.7rem; }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 600; color: white; line-height: 1.15;
+    margin-bottom: 0.3rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-subtitle {
+    font-size: 1rem; color: rgba(255,255,255,0.65);
+    margin-bottom: 1.6rem; font-weight: 300; letter-spacing: 0.03em;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-desc {
+    font-size: 0.95rem; color: rgba(255,255,255,0.7);
+    line-height: 1.75; max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    padding: 0.85rem 2rem; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.45); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.3); color: white;
+    padding: 0.85rem 2rem; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+
+  .hero-card {
+    position: relative; z-index: 2;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px; padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .rating-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem; }
+  .stars { color: var(--gold); font-size: 1.2rem; letter-spacing: 2px; }
+  .rating-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: white; }
+  .rating-label { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
+  .reviews-list { display: flex; flex-direction: column; gap: 1rem; }
+  .review-item {
+    background: rgba(255,255,255,0.04); border-radius: 12px;
+    padding: 1rem 1.2rem; border-left: 3px solid var(--teal-light);
+  }
+  .review-name { font-size: 0.82rem; font-weight: 500; color: var(--gold); margin-bottom: 0.3rem; }
+  .review-text { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.5; font-style: italic; }
+  .open-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    margin-top: 1.5rem; background: rgba(16,185,129,0.15);
+    border: 1px solid rgba(16,185,129,0.3);
+    color: #34d399; padding: 0.4rem 1rem; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 500;
+  }
+  .open-badge::before { content: '●'; font-size: 0.6rem; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* STATS */
+  .stats {
+    background: var(--teal);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 6vw; gap: 0;
+  }
+  .stat-item {
+    text-align: center; padding: 1rem;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 600; color: white; line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; }
+
+  /* SECTION BASE */
+  section { padding: 90px 6vw; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); background: var(--teal-pale);
+    padding: 0.3rem 0.9rem; border-radius: 50px; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 600; color: var(--dark);
+    line-height: 1.2; margin-bottom: 1rem;
+  }
+  .section-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 540px; }
+
+  /* ABOUT */
+  .about { background: white; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-box {
+    background: linear-gradient(135deg, var(--teal-pale), #c8f0ea);
+    border-radius: 20px; height: 420px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7rem; position: relative; overflow: hidden;
+  }
+  .about-img-box::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(10,124,110,0.08));
+  }
+  .about-badge-card {
+    position: absolute; bottom: -20px; right: -20px;
+    background: white; border-radius: 16px; padding: 1.2rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .badge-icon { font-size: 1.8rem; }
+  .badge-text strong { display: block; font-size: 0.9rem; color: var(--dark); }
+  .badge-text span { font-size: 0.78rem; color: var(--muted); }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .about-tag {
+    background: var(--teal-pale); color: var(--teal);
+    padding: 0.4rem 0.9rem; border-radius: 50px;
+    font-size: 0.82rem; font-weight: 500;
+  }
+
+  /* SERVICES */
+  .services { background: #f4faf9; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .service-card {
+    background: white; border-radius: 20px; padding: 2rem;
+    border: 1px solid rgba(10,124,110,0.1);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(10,124,110,0.12);
+    border-color: var(--teal);
+  }
+  .service-icon { font-size: 2.2rem; margin-bottom: 1.2rem; }
+  .service-card h3 { font-size: 1.05rem; font-weight: 500; color: var(--dark); margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+  /* REVIEWS */
+  .reviews { background: white; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .review-card {
+    background: var(--teal-pale); border-radius: 20px; padding: 1.8rem;
+    border: 1px solid rgba(10,124,110,0.1);
+    transition: transform 0.2s;
+  }
+  .review-card:hover { transform: translateY(-4px); }
+  .review-card .stars { font-size: 0.9rem; margin-bottom: 0.8rem; display: block; }
+  .review-card blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-style: italic; color: var(--dark);
+    line-height: 1.6; margin-bottom: 1rem;
+  }
+  .reviewer { font-size: 0.82rem; font-weight: 500; color: var(--teal); }
+
+  /* CONTACT */
+  .contact { background: var(--dark); }
+  .contact .section-title { color: white; }
+  .contact .section-tag { background: rgba(10,124,110,0.25); color: #4dd9c5; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.8rem; }
+  .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .contact-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(10,124,110,0.25); border: 1px solid rgba(10,124,110,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .contact-item-text strong { display: block; color: white; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .contact-item-text span, .contact-item-text a {
+    color: rgba(255,255,255,0.55); font-size: 0.88rem; text-decoration: none;
+    line-height: 1.6;
+  }
+  .contact-item-text a:hover { color: var(--gold); }
+
+  .contact-cta {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px; padding: 2.5rem; display: flex; flex-direction: column;
+    gap: 1.2rem; justify-content: center;
+  }
+  .contact-cta h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; color: white; line-height: 1.3;
+  }
+  .contact-cta p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+  .cta-phone {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    background: var(--teal); color: white; padding: 1rem 1.8rem;
+    border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+    width: fit-content;
+  }
+  .cta-phone:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: #070f0e; text-align: center;
+    padding: 2rem 6vw; color: rgba(255,255,255,0.3); font-size: 0.82rem;
+  }
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 120px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid, .reviews-grid { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    nav { padding: 0 4vw; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .services-grid, .reviews-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dr. <span>Bisoi's</span> Vitality Care</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">4.9 Rating · Trusted Clinic in Angul</div>
+    <h1>Dr. K.S. Bisoi<br><em>Vitality Care Clinic</em></h1>
+    <p class="hero-subtitle">General Medicine · Diabetes · Thyroid · Metabolic Disorders</p>
+    <p class="hero-desc">
+      Your trusted partner in health. Dr. Bisoi's Vitality Care Clinic provides compassionate, expert-led care for metabolic conditions, diabetes management, thyroid disorders, and general medicine — available 24 hours a day.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:08457981333" class="btn-primary">📞 Call Now</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="rating-row">
+      <div>
+        <div class="rating-num">4.9</div>
+        <div class="rating-label">out of 5 · 48 reviews</div>
+      </div>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="reviews-list">
+      <div class="review-item">
+        <div class="review-name">Sunand Kunar</div>
+        <div class="review-text">"Excellent Doctor to consult."</div>
+      </div>
+      <div class="review-item">
+        <div class="review-name">Tuna Behera</div>
+        <div class="review-text">"I am sure of my views on Dr. Bisoi Sir's diagnosis and treatment."</div>
+      </div>
+      <div class="review-item">
+        <div class="review-name">Suraj Patra</div>
+        <div class="review-text">"Clinic service is good."</div>
+      </div>
+    </div>
+    <div class="open-badge">Open 24 Hours · 7 Days a Week</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">4.9★</div>
+    <div class="stat-label">Google Rating</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">48+</div>
+    <div class="stat-label">Patient Reviews</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">Always Available</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">81+</div>
+    <div class="stat-label">Clinic Photos</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-img-box">🩺</div>
+      <div class="about-badge-card">
+        <div class="badge-icon">🏥</div>
+        <div class="badge-text">
+          <strong>Angul's Trusted Clinic</strong>
+          <span>Metabolic Care Specialist</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content">
+      <span class="section-tag">About the Clinic</span>
+      <h2 class="section-title">Expert Care, Compassionate Heart</h2>
+      <p class="section-desc">
+        Dr. K.S. Bisoi's Vitality Care Clinic is a dedicated Metabolic Clinic serving the people of Angul, Odisha. Located near Bus Stand at Kalia Sahu Market Complex, we offer expert consultation and treatment for a wide range of general medicine and metabolic health conditions.
+      </p>
+      <p class="section-desc" style="margin-top:1rem;">
+        Our clinic is committed to personalized care — from accurate diagnosis to effective treatment plans — ensuring every patient walks out healthier and more informed.
+      </p>
+      <div class="about-tags">
+        <span class="about-tag">General Medicine</span>
+        <span class="about-tag">Diabetes Care</span>
+        <span class="about-tag">Thyroid Disorders</span>
+        <span class="about-tag">Obesity Treatment</span>
+        <span class="about-tag">Metabolic Disorders</span>
+        <span class="about-tag">Adult Vaccination</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <span class="section-tag">What We Treat</span>
+  <h2 class="section-title">Our Specialisations</h2>
+  <p class="section-desc">We offer a comprehensive range of medical services, with a special focus on metabolic health and preventive care.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🩺</div>
+      <h3>General Medicine</h3>
+      <p>Diagnosis and treatment of common illnesses, fever, infections, and routine health check-ups for all adults.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩸</div>
+      <h3>Diabetes Management</h3>
+      <p>Comprehensive diabetes care including blood sugar monitoring, medication management, and lifestyle counseling.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🦋</div>
+      <h3>Thyroid Disorders</h3>
+      <p>Expert treatment for hypothyroidism, hyperthyroidism, and other thyroid-related health conditions.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚖️</div>
+      <h3>Obesity & Weight Management</h3>
+      <p>Science-backed plans for sustainable weight management and obesity treatment with medical supervision.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <h3>Metabolic Disorders</h3>
+      <p>Specialized care for metabolic syndrome, lipid disorders, and other conditions affecting metabolism.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💉</div>
+      <h3>Adult Vaccination</h3>
+      <p>Complete adult immunization services including flu shots, hepatitis vaccines, and preventive vaccinations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <span class="section-tag">Patient Stories</span>
+  <h2 class="section-title">What Patients Say</h2>
+  <p class="section-desc">We are proud to be a highly rated clinic in Angul, trusted by hundreds of patients for our quality care.</p>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <span class="stars">★★★★★</span>
+      <blockquote>"Excellent Doctor to consult. Very knowledgeable and attentive."</blockquote>
+      <div class="reviewer">— Sunand Kunar</div>
+    </div>
+    <div class="review-card">
+      <span class="stars">★★★★★</span>
+      <blockquote>"I am confident of Dr. Bisoi Sir's diagnosis and treatment. Very effective care."</blockquote>
+      <div class="reviewer">— Tuna Behera</div>
+    </div>
+    <div class="review-card">
+      <span class="stars">★★★★★</span>
+      <blockquote>"Clinic service is good. Staff is helpful and the environment is clean and professional."</blockquote>
+      <div class="reviewer">— Suraj Patra</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <span class="section-tag">Get In Touch</span>
+  <h2 class="section-title">Visit Us Today</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-item-text">
+          <strong>Address</strong>
+          <span>Bus Stand, Dr. K.S. Bisoi C/o- Tula
